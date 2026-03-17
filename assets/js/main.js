@@ -124,6 +124,19 @@
     });
   }
 
+
+  // ── Scroll to top ────────────────────────────────────────────
+  const scrollTopBtn = $('#scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // ── Smooth scroll ────────────────────────────────────────
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
