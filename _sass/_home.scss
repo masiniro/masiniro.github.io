@@ -3,7 +3,7 @@
 // ============================================
 
 .home-hero {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-xl) 0;
   position: relative;
 
   // ambient glow
@@ -83,9 +83,9 @@
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
   border-radius: var(--r-xl);
-  padding: var(--space-2xl);
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
   text-align: center;
-  margin-top: var(--space-3xl);
+  margin-top: var(--space-xl);
   position: relative;
   overflow: hidden;
 
@@ -99,12 +99,12 @@
 
   h3 {
     font-size: 1.75rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: 6px;
   }
 
   p {
     color: var(--clr-text-3);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
     font-size: 0.95rem;
   }
 

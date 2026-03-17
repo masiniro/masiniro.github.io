@@ -151,3 +151,14 @@ table {
   overflow: hidden !important;
   max-width: 100vw;
 }
+
+// Z-index reset - nimic nu depaseste header-ul
+.post-content,
+.container,
+section,
+article,
+aside,
+main {
+  position: relative;
+  z-index: 1;
+}
