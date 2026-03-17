@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   height: var(--header-h);
   display: flex;
   align-items: center;
@@ -188,7 +188,7 @@
 .search-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 10000;
   background: rgba(8,10,15,0.9);
   backdrop-filter: blur(20px);
   display: flex;
@@ -267,8 +267,10 @@
     background: var(--clr-bg);
     padding: var(--space-xl) var(--space-lg);
     gap: 4px;
-    z-index: 98;
+    z-index: 9999;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 
     &.open {
       display: flex;

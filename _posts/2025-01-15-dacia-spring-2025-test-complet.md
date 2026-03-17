@@ -3,7 +3,7 @@ layout: post
 title: "Dacia Spring 2025: Cel mai ieftin electric din România face față în traficul din București?"
 description: "Am condus Dacia Spring timp de o săptămână în București și pe autostradă. Iată ce am descoperit despre autonomie, confort și prețul real de operare."
 date: 2025-01-15 09:00:00 +0200
-categories: [Teste]
+categories: [Test Drive]
 tags: [Dacia, Electric, Dacia Spring, Bucuresti]
 author: AutoRO
 image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80"

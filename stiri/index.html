@@ -1,0 +1,52 @@
+---
+layout: default
+title: "Știri Auto — MasiniRO"
+description: "Ultimele știri auto din România — noutăți, lansări și evenimente."
+---
+
+<section style="padding: var(--space-3xl) 0 var(--space-2xl);">
+  <div class="container">
+
+    <div style="margin-bottom: var(--space-2xl);">
+      <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
+        <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;">
+          <li><a href="{{ '/' | relative_url }}" style="color:var(--clr-text-3);">Acasă</a></li>
+          <li style="color:var(--clr-text-3);opacity:.4;">›</li>
+          <li style="color:var(--clr-accent);">Știri Auto</li>
+        </ol>
+      </nav>
+      <h1>Știri Auto</h1>
+      <p style="color:var(--clr-text-3);margin-top:var(--space-md);max-width:640px;">Ultimele știri auto din România — noutăți, lansări și evenimente.</p>
+    </div>
+
+    <nav class="category-nav" aria-label="Categorii">
+      <a href="{{ '/stiri/' | relative_url }}">Știri</a>
+      <a href="{{ '/test-drive/' | relative_url }}">Test Drive</a>
+      <a href="{{ '/sfaturi/' | relative_url }}">Sfaturi</a>
+      <a href="{{ '/electrice/' | relative_url }}">Electrice</a>
+      <a href="{{ '/second-hand/' | relative_url }}">Second Hand</a>
+      <a href="{{ '/motoare/' | relative_url }}">Motoare</a>
+      <a href="{{ '/dezmembrari/' | relative_url }}">Dezmembrări</a>
+    </nav>
+
+    {%- assign cat_posts = site.posts | where_exp: "p", "p.categories contains 'Stiri'" -%}
+    {% if cat_posts.size > 0 %}
+    <div class="section-title">
+      <h2>{{ cat_posts.size }} articole</h2>
+      <div class="title-line"></div>
+    </div>
+    <div class="posts-grid">
+      {%- for post in cat_posts -%}
+        {%- include post-card.html post=post -%}
+      {%- endfor -%}
+    </div>
+    {% else %}
+    <div style="text-align:center;padding:var(--space-3xl) 0;">
+      <p style="font-size:3rem;margin-bottom:var(--space-md);">🚗</p>
+      <h3>Articole în curând</h3>
+      <p style="color:var(--clr-text-3);margin-top:var(--space-sm);">Această categorie va fi populată în curând.</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>

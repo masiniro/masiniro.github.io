@@ -91,14 +91,6 @@
   "description": {{ site.description | jsonify }},
   "url": {{ site.url | jsonify }},
   "inLanguage": "ro-RO",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": {{ site.url | append: site.baseurl | append: "/arhiva/?q={search_term_string}" | jsonify }}
-    },
-    "query-input": "required name=search_term_string"
-  },
   "publisher": {
     "@type": "Organization",
     "name": {{ site.title | jsonify }},
