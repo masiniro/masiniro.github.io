@@ -1,8 +1,8 @@
 title: "AutoRO"
 tagline: "Știri și teste auto din România"
 description: "Cel mai actualizat blog auto din România — știri, teste drive, sfaturi și noutăți auto pentru șoferii români."
-url: "https://USERUL_TAU.github.io"
-baseurl: "/autoblog"
+url: "https://masiniro.github.io"
+baseurl: ""
 lang: "ro"
 locale: "ro_RO"
 timezone: "Europe/Bucharest"
@@ -10,7 +10,7 @@ timezone: "Europe/Bucharest"
 author:
   name: "AutoRO"
   email: "contact@autoro.ro"
-  url: "https://USERUL_TAU.github.io/autoblog"
+  url: "https://masiniro.github.io"
 
 logo: "/assets/images/favicon.svg"
 
