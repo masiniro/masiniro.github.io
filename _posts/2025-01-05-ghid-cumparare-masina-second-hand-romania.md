@@ -5,7 +5,7 @@ description: "Tot ce trebuie să verifici înainte să dai banii pe o mașină s
 date: 2025-01-05 10:00:00 +0200
 categories: [Second Hand]
 tags: [Second Hand, Ghid, Cumparare, Romania]
-author: AutoRO
+author: MasiniRO
 image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80"
 ---
 

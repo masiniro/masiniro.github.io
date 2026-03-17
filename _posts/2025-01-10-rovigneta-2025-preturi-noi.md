@@ -5,7 +5,7 @@ description: "Guvernul a modificat sistemul de rovignetă pentru 2025. Iată tot
 date: 2025-01-10 08:00:00 +0200
 categories: [Stiri]
 tags: [Rovigneta, Legislatie, Romania, Taxe]
-author: AutoRO
+author: MasiniRO
 image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80"
 ---
 

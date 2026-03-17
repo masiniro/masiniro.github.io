@@ -1,4 +1,4 @@
-name: Auto-Post cu Claude AI (Faza 2)
+name: Auto-Post MasiniRO cu Claude AI
 
 on:
   schedule:
@@ -43,6 +43,21 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic requests python-frontmatter
 
+      - name: Validate inputs
+        run: |
+          TOPIC_INPUT="${{ github.event.inputs.topic }}"
+          # Reject if topic contains shell metacharacters
+          if echo "$TOPIC_INPUT" | grep -qP '[;&|`$(){}\[\]<>!\\]'; then
+            echo "❌ TOPIC input contine caractere nepermise"
+            exit 1
+          fi
+          # Limit length
+          if [ ${#TOPIC_INPUT} -gt 200 ]; then
+            echo "❌ TOPIC prea lung (max 200 caractere)"
+            exit 1
+          fi
+          echo "✅ Input valid"
+
       - name: Generate article with Claude
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -52,8 +67,8 @@ jobs:
 
       - name: Commit and push new post
         run: |
-          git config --local user.email "autoro-bot@users.noreply.github.com"
-          git config --local user.name "AutoRO Bot"
+          git config --local user.email "masiniro-bot@users.noreply.github.com"
+          git config --local user.name "MasiniRO Bot"
           git add _posts/
           git diff --staged --quiet || git commit -m "🚗 Auto-post: $(date +'%Y-%m-%d')"
           git push

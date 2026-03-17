@@ -15,5 +15,12 @@
 
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 
+  <script>
+    // Activate async-loaded font without inline onload handler
+    (function(){
+      var el = document.getElementById('font-css');
+      if(el){ el.media = 'all'; }
+    })();
+  </script>
 </body>
 </html>

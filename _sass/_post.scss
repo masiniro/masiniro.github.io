@@ -477,3 +477,27 @@
     font-size: 1rem;
   }
 }
+
+// ── Comentarii Giscus ────────────────────────────────────────
+.comments-section {
+  max-width: 780px;
+  margin: 0 auto;
+
+  .comments-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--clr-text);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--clr-border);
+
+    svg { color: var(--clr-accent); flex-shrink: 0; }
+  }
+
+  .giscus, .giscus-frame {
+    width: 100%;
+  }
+}

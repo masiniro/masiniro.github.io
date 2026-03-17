@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Timișoara — AutoRO"
+title: "Știri Auto Timișoara — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Timișoara, județul Timiș. Informații auto locale actualizate zilnic."
 city: "Timișoara"
 judet: "Timiș"

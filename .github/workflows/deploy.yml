@@ -1,4 +1,4 @@
-name: Deploy AutoRO Blog to GitHub Pages
+name: Deploy MasiniRO Blog to GitHub Pages
 
 on:
   push:

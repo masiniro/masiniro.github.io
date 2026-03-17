@@ -162,3 +162,10 @@ main {
   position: relative;
   z-index: 1;
 }
+
+// Breadcrumb links (inlocuieste onmouseover/onmouseout inline)
+.breadcrumb-link {
+  color: var(--clr-text-3);
+  transition: color 180ms;
+  &:hover { color: var(--clr-text); }
+}

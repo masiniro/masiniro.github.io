@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Constanța — AutoRO"
+title: "Știri Auto Constanța — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Constanța, județul Constanța. Informații auto locale actualizate zilnic."
 city: "Constanța"
 judet: "Constanța"

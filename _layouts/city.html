@@ -7,9 +7,9 @@ layout: default
     <div style="margin-bottom: var(--space-2xl);">
       <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
         <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;color:var(--clr-text-3);">
-          <li><a href="{{ '/' | relative_url }}" style="color:var(--clr-text-3);transition:color 180ms;" onmouseover="this.style.color='var(--clr-text)'" onmouseout="this.style.color='var(--clr-text-3)'">Acasă</a></li>
+          <li><a href="{{ '/' | relative_url }}" class="breadcrumb-link">Acasă</a></li>
           <li aria-hidden="true" style="opacity:.4;">›</li>
-          <li><a href="{{ '/orase/' | relative_url }}" style="color:var(--clr-text-3);transition:color 180ms;" onmouseover="this.style.color='var(--clr-text)'" onmouseout="this.style.color='var(--clr-text-3)'">Orașe</a></li>
+          <li><a href="{{ '/orase/' | relative_url }}" class="breadcrumb-link">Orașe</a></li>
           <li aria-hidden="true" style="opacity:.4;">›</li>
           <li aria-current="page" style="color:var(--clr-accent);">{{ page.city }}</li>
         </ol>

@@ -5,7 +5,7 @@ description: "Am condus Dacia Spring timp de o săptămână în București și 
 date: 2025-01-15 09:00:00 +0200
 categories: [Test Drive]
 tags: [Dacia, Electric, Dacia Spring, Bucuresti]
-author: AutoRO
+author: MasiniRO
 image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80"
 ---
 

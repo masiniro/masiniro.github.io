@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AutoRO — Generator automat de articole cu Claude API
+MasiniRO — Generator automat de articole cu Claude API
 Faza 2: Postare zilnică automată
 
 Variabile de mediu necesare (GitHub Secrets):
@@ -70,7 +70,7 @@ TOPIC_POOLS = {
     ],
 }
 
-SYSTEM_PROMPT = """Ești redactorul-șef al AutoRO, cel mai bun blog auto din România.
+SYSTEM_PROMPT = """Ești redactorul-șef al MasiniRO, cel mai bun blog auto din România.
 Scrii articole de înaltă calitate în română, precise, utile și captivante.
 
 Regulile tale:
@@ -101,6 +101,23 @@ def slugify(text: str) -> str:
     text = re.sub(r'\s+', '-', text.strip())
     text = re.sub(r'-+', '-', text)
     return text[:80]
+
+
+def sanitize_yaml_string(text: str) -> str:
+    """Remove characters that could break YAML front matter."""
+    # Remove YAML-breaking characters: quotes, colons at start, dashes at start
+    text = text.replace('"', "'").replace('\\', '')
+    # Remove any YAML front matter delimiters
+    text = text.replace('---', '—')
+    # Strip control characters
+    text = ''.join(c for c in text if ord(c) >= 32 or c in '\n\t')
+    return text.strip()
+
+
+def sanitize_tag(tag: str) -> str:
+    """Sanitize a single tag for YAML."""
+    tag = tag.replace('"', '').replace("'", '').replace(':', '').replace('#', '')
+    return tag.strip()[:50]
 
 
 def pick_topic() -> str:
@@ -142,7 +159,7 @@ def generate_article(topic: str) -> dict:
     """Call Claude API and return structured article data."""
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-    prompt = f"""Scrie un articol complet pentru blogul AutoRO despre: **{topic}**
+    prompt = f"""Scrie un articol complet pentru blogul MasiniRO despre: **{topic}**
 
 Categoria articolului: {CATEGORY}
 
@@ -184,20 +201,22 @@ def build_post_file(data: dict, topic: str) -> tuple[str, str]:
     """Build Jekyll front matter + content and return (filename, content)."""
     file_date, front_date = get_date_strings()
     slug      = slugify(data["title"])
-    filename  = f"_posts/{file_date}-{slug}.md"
+    # Sanitize slug to prevent path traversal
+    safe_slug = slug.replace('/', '').replace('..', '').replace('\\', '')
+    filename  = f"_posts/{file_date}-{safe_slug}.md"
     image_url = get_unsplash_image(topic)
-    tags_yaml = "\n".join(f'  - "{t}"' for t in data.get("tags", []))
+    tags_yaml = "\n".join(f'  - "{sanitize_tag(t)}"' for t in data.get("tags", []))
     emoji     = CATEGORY_EMOJIS.get(CATEGORY, "🚗")
 
     front_matter = f"""---
 layout: post
-title: "{data['title'].replace('"', "'")}"
-description: "{data['description'].replace('"', "'")}"
+title: "{sanitize_yaml_string(data['title'])}"
+description: "{sanitize_yaml_string(data['description'])}"
 date: {front_date}
 categories: [{CATEGORY}]
 tags:
 {tags_yaml}
-author: AutoRO
+author: MasiniRO
 image: "{image_url}"
 generated: true
 ---

@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Slobozia — AutoRO"
+title: "Știri Auto Slobozia — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Slobozia, județul Ialomița. Informații auto locale actualizate zilnic."
 city: "Slobozia"
 judet: "Ialomița"

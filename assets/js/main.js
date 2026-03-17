@@ -98,6 +98,7 @@
         if (navigator.share) { await navigator.share({ title: document.title, url: location.href }); }
         else {
           await navigator.clipboard.writeText(location.href);
+          // Safe: saves/restores static SVG icon markup (not user input)
           const o = shareBtn.innerHTML;
           shareBtn.textContent = '✓ Copiat!';
           setTimeout(() => { shareBtn.innerHTML = o; }, 2000);

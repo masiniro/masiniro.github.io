@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Auto pe Orașe din România — AutoRO"
+title: "Auto pe Orașe din România — MasiniRO"
 description: "Știri și informații auto organizate pe orașe din România. Găsește știri auto relevante pentru orașul tău."
 permalink: /orase/
 ---

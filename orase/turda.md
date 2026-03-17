@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Turda — AutoRO"
+title: "Știri Auto Turda — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Turda, județul Cluj. Informații auto locale actualizate zilnic."
 city: "Turda"
 judet: "Cluj"

@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Bacău — AutoRO"
+title: "Știri Auto Bacău — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Bacău, județul Bacău. Informații auto locale actualizate zilnic."
 city: "Bacău"
 judet: "Bacău"

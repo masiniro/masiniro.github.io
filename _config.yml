@@ -75,3 +75,7 @@ social:
 collections:
   posts:
     output: true
+
+# Security note: GitHub Pages sets HSTS + TLS automatically.
+# CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy and
+# Permissions-Policy are set via <meta> tags in _includes/head.html
