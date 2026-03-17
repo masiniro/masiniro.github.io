@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Ploiești — MasiniRO"
+title: "Auto Ploiești — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Ploiești, județul Prahova. Informații auto locale actualizate zilnic."
 city: "Ploiești"
 judet: "Prahova"

@@ -1,6 +1,6 @@
 ---
 layout: city
-title: "Știri Auto Mediaș — MasiniRO"
+title: "Auto Mediaș — MasiniRO"
 description: "Ultimele știri, teste drive și sfaturi auto pentru șoferii din Mediaș, județul Sibiu. Informații auto locale actualizate zilnic."
 city: "Mediaș"
 judet: "Sibiu"
