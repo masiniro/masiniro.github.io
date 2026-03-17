@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#E8FF47"/>
-  <text x="50%" y="56%" font-family="Arial Black, sans-serif" font-size="14" font-weight="900"
-        fill="#080A0F" text-anchor="middle" dominant-baseline="middle">AR</text>
+  <rect width="32" height="32" rx="7" fill="#E8FF47"/>
+  <circle cx="16" cy="17" r="8.5" stroke="#080A0F" stroke-width="2.2" fill="none"/>
+  <circle cx="16" cy="17" r="2.5" fill="#080A0F"/>
+  <line x1="16" y1="8.5" x2="16" y2="12" stroke="#080A0F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="16" y1="22" x2="16" y2="25.5" stroke="#080A0F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="7.5" y1="17" x2="11" y2="17" stroke="#080A0F" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="21" y1="17" x2="24.5" y2="17" stroke="#080A0F" stroke-width="2.2" stroke-linecap="round"/>
 </svg>

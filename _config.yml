@@ -8,8 +8,8 @@ locale: "ro_RO"
 timezone: "Europe/Bucharest"
 
 author:
-  name: "AutoRO"
-  email: "contact@autoro.ro"
+  name: "MasiniRO"
+  email: "contact@masiniro.ro"
   url: "https://masiniro.github.io"
 
 logo: "/assets/images/favicon.svg"
@@ -47,7 +47,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "AutoRO"
+      author: "MasiniRO"
       image: "/assets/images/default-og.svg"
   - scope:
       path: ""
@@ -63,14 +63,14 @@ feed:
   posts_limit: 20
 
 twitter:
-  username: autoro
+  username: masiniro
   card: summary_large_image
 
 social:
-  name: AutoRO
+  name: MasiniRO
   links:
-    - https://facebook.com/autoro
-    - https://instagram.com/autoro
+    - https://facebook.com/masiniro
+    - https://instagram.com/masiniro
 
 collections:
   posts:
