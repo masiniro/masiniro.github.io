@@ -94,7 +94,22 @@ layout: default
 {% if page.image %}
 <div class="container" style="margin-bottom:var(--space-3xl);">
   <div class="post-cover">
-    <img src="{{ page.image | escape }}" alt="{{ page.title | escape }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="630">
+    {%- assign cover_img = page.image | escape -%}
+    {%- if cover_img contains "unsplash.com" -%}
+      {%- assign cover_base = cover_img | split: "?" | first -%}
+      <img
+        src="{{ cover_base }}?w=1200&q=80&auto=format"
+        srcset="{{ cover_base }}?w=800&q=80&auto=format 800w, {{ cover_base }}?w=1200&q=80&auto=format 1200w"
+        sizes="(max-width: 900px) 100vw, 1200px"
+        alt="{{ page.title | escape }}"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        width="1200"
+        height="630">
+    {%- else -%}
+      <img src="{{ cover_img }}" alt="{{ page.title | escape }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="630">
+    {%- endif -%}
   </div>
 </div>
 {% endif %}

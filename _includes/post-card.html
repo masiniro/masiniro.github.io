@@ -2,7 +2,21 @@
 <article class="post-card">
   <a href="{{ post.url | relative_url }}" class="card-img" tabindex="-1" aria-hidden="true">
     {% if post.image %}
-      <img src="{{ post.image | escape }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async">
+      {%- assign card_img = post.image | escape -%}
+      {%- if card_img contains "unsplash.com" -%}
+        {%- assign img_base = card_img | split: "?" | first -%}
+        <img
+          src="{{ img_base }}?w=400&q=75&auto=format"
+          srcset="{{ img_base }}?w=400&q=75&auto=format 400w, {{ img_base }}?w=800&q=75&auto=format 800w"
+          sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 400px"
+          alt="{{ post.title | escape }}"
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="267">
+      {%- else -%}
+        <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="267">
+      {%- endif -%}
     {% else %}
       <div class="card-no-img">🚘</div>
     {% endif %}
