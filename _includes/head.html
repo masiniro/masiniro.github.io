@@ -15,7 +15,7 @@
   {%- assign page_img = page_img | absolute_url -%}
 {%- endunless -%}
 
-<!-- ═══ Primary SEO ═══════════════════════════════════════════════════ -->
+<!-- Primary SEO -->
 <title>{% if page.title %}{{ page.title | escape }} — {{ site.title | escape }}{% else %}{{ site.title | escape }} — {{ site.tagline | escape }}{% endif %}</title>
 <meta name="description" content="{{ page_desc }}">
 <link rel="canonical" href="{{ page_url }}">
@@ -23,7 +23,7 @@
 <meta name="author" content="{{ site.author.name }}">
 <meta name="language" content="Romanian">
 
-<!-- ═══ Open Graph ════════════════════════════════════════════════════ -->
+<!-- Open Graph -->
 <meta property="og:type"        content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
 <meta property="og:title"       content="{{ page_title }}">
 <meta property="og:description" content="{{ page_desc }}">
@@ -44,7 +44,7 @@
 {% endfor %}
 {% endif %}
 
-<!-- ═══ Twitter Card ══════════════════════════════════════════════════ -->
+<!-- Twitter Card -->
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:site"        content="@{{ site.twitter.username }}">
 <meta name="twitter:title"       content="{{ page_title }}">
@@ -123,7 +123,7 @@
 {%- endif -%}
 </script>
 
-<!-- ═══ Breadcrumb Schema (doar pe articole) ═════════════════════════ -->
+<!-- Breadcrumb Schema (doar pe articole) -->
 {% if page.layout == 'post' %}
 <script type="application/ld+json">
 {
@@ -162,14 +162,14 @@
 </script>
 {% endif %}
 
-<!-- ═══ Fonts (preconnect pentru viteză) ═════════════════════════════ -->
+<!-- Fonts (preconnect pentru viteză) -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" id="font-css">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
-<!-- ═══ CSS ══════════════════════════════════════════════════════════ -->
+<!-- CSS -->
 <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-<!-- ═══ Feed & Favicon ═══════════════════════════════════════════════ -->
+<!-- Feed & Favicon -->
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
