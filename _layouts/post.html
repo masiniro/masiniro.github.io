@@ -94,7 +94,7 @@ layout: default
 {% if page.image %}
 <div class="container" style="margin-bottom:var(--space-3xl);">
   <div class="post-cover">
-    <img src="{{ page.image | escape }}" alt="{{ page.title | escape }}" loading="eager" decoding="async" width="1200" height="630">
+    <img src="{{ page.image | escape }}" alt="{{ page.title | escape }}" loading="eager" decoding="async" fetchpriority="high" width="1200" height="630">
   </div>
 </div>
 {% endif %}

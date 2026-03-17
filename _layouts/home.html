@@ -51,7 +51,7 @@ layout: default
     <a href="{{ featured.url | relative_url }}" class="hero-card">
       <div class="hero-img">
         {% if featured.image %}
-          <img src="{{ featured.image }}" alt="{{ featured.title }}" loading="eager">
+          <img src="{{ featured.image }}" alt="{{ featured.title }}" loading="eager" fetchpriority="high" decoding="async">
         {% else %}
           <div class="no-img-placeholder">🚗</div>
         {% endif %}
