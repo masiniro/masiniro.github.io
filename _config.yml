@@ -49,11 +49,6 @@ defaults:
       layout: "post"
       author: "MasiniRO"
       image: "/assets/images/default-og.svg"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
 
 paginate: 12
 paginate_path: "/arhiva/pagina/:num/"
