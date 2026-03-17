@@ -38,7 +38,7 @@
 
     p {
       font-size: 0.875rem;
-      color: var(--clr-text-3);
+      color: var(--clr-text-2);
       line-height: 1.7;
       max-width: 280px;
       margin-bottom: var(--space-lg);
@@ -57,7 +57,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--clr-text-3);
+        color: var(--clr-text-2);
         transition: all var(--dur-fast);
 
         &:hover {
@@ -81,7 +81,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--clr-text-3);
+      color: var(--clr-text-2);
       margin-bottom: var(--space-lg);
     }
 
@@ -117,7 +117,7 @@
 
     p {
       font-size: 0.8rem;
-      color: var(--clr-text-3);
+      color: var(--clr-text-2);
     }
 
     .footer-badge {
@@ -125,7 +125,7 @@
       align-items: center;
       gap: 6px;
       font-size: 0.75rem;
-      color: var(--clr-text-3);
+      color: var(--clr-text-2);
       background: var(--clr-surface);
       padding: 4px 10px;
       border-radius: 99px;

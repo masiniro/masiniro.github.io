@@ -31,7 +31,7 @@
 </header>
 
 <!-- MOBILE NAV — în afara header, deasupra oricărui conținut -->
-<div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+<div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true" inert>
   <nav class="mobile-nav-inner">
     {%- assign cur = page.url -%}
     <a href="{{ '/' | relative_url }}"            {% if cur == '/' %}class="active"{% endif %}>
@@ -65,7 +65,7 @@
 </div>
 
 <!-- Search overlay -->
-<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true">
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Caută articole">
   <div class="search-box">
     <input type="search" id="search-input" placeholder="Caută articole..." autocomplete="off">
     <p class="search-hint">Apasă <kbd>ESC</kbd> pentru a închide</p>

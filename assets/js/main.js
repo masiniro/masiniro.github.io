@@ -18,6 +18,7 @@
     const openNav = () => {
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
+      overlay.removeAttribute('inert');
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -25,6 +26,7 @@
     const closeNav = () => {
       overlay.classList.remove('open');
       overlay.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('inert', '');
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
