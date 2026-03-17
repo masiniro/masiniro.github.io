@@ -1,0 +1,49 @@
+---
+layout: default
+title: "Test Drive Timișoara — MasiniRO"
+description: "Test Drive din Timișoara — cele mai recente articole pentru șoferii din Timișoara."
+---
+
+<section style="padding: var(--space-3xl) 0 var(--space-2xl);">
+  <div class="container">
+
+    <div style="margin-bottom: var(--space-2xl);">
+      <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
+        <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;flex-wrap:wrap;">
+          <li><a href="/" style="color:var(--clr-text-3);">Acasă</a></li>
+          <li style="color:var(--clr-text-3);opacity:.4;">›</li>
+          <li><a href="/test-drive/" style="color:var(--clr-text-3);">Test Drive</a></li>
+          <li style="color:var(--clr-text-3);opacity:.4;">›</li>
+          <li style="color:var(--clr-accent);">Timișoara</li>
+        </ol>
+      </nav>
+      <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--space-sm);">Test Drive</p>
+      <h1>Test Drive Timișoara</h1>
+      <p style="color:var(--clr-text-3);margin-top:var(--space-md);max-width:640px;">
+        Articole despre test drive relevante pentru șoferii din <strong style="color:var(--clr-text);">Timișoara</strong>.
+      </p>
+    </div>
+
+    {%- assign city_cat_posts = site.posts | where_exp: "p", "p.categories contains 'Test Drive'" | where_exp: "p", "p.tags contains 'Timișoara' or p.cities contains 'Timișoara'" -%}
+    {%- assign fallback_posts = site.posts | where_exp: "p", "p.categories contains 'Test Drive'" -%}
+    {%- if city_cat_posts.size > 0 -%}
+      {%- assign display_posts = city_cat_posts -%}
+    {%- else -%}
+      {%- assign display_posts = fallback_posts -%}
+    {%- endif -%}
+
+    {% if display_posts.size > 0 %}
+    <div class="posts-grid">
+      {%- for post in display_posts limit:12 -%}
+        {%- include post-card.html post=post -%}
+      {%- endfor -%}
+    </div>
+    {% else %}
+    <div style="text-align:center;padding:var(--space-3xl) 0;">
+      <p style="font-size:3rem;margin-bottom:var(--space-md);">🚗</p>
+      <h3>Articole în curând</h3>
+    </div>
+    {% endif %}
+
+  </div>
+</section>

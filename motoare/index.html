@@ -10,7 +10,7 @@ description: "Știri și ghiduri despre motoare, tuning și performanță auto."
     <div style="margin-bottom: var(--space-2xl);">
       <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
         <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;">
-          <li><a href="{{ '/' | relative_url }}" style="color:var(--clr-text-3);">Acasă</a></li>
+          <li><a href="/" style="color:var(--clr-text-3);">Acasă</a></li>
           <li style="color:var(--clr-text-3);opacity:.4;">›</li>
           <li style="color:var(--clr-accent);">Motoare & Tuning</li>
         </ol>
@@ -20,18 +20,18 @@ description: "Știri și ghiduri despre motoare, tuning și performanță auto."
     </div>
 
     <nav class="category-nav" aria-label="Categorii">
-      <a href="{{ '/stiri/' | relative_url }}">Știri</a>
-      <a href="{{ '/test-drive/' | relative_url }}">Test Drive</a>
-      <a href="{{ '/sfaturi/' | relative_url }}">Sfaturi</a>
-      <a href="{{ '/electrice/' | relative_url }}">Electrice</a>
-      <a href="{{ '/second-hand/' | relative_url }}">Second Hand</a>
-      <a href="{{ '/motoare/' | relative_url }}">Motoare</a>
-      <a href="{{ '/dezmembrari/' | relative_url }}">Dezmembrări</a>
+      <a href="/stiri/" >Știri</a>
+      <a href="/test-drive/" >Test Drive</a>
+      <a href="/sfaturi/" >Sfaturi</a>
+      <a href="/electrice/" >Electrice</a>
+      <a href="/second-hand/" >Second Hand</a>
+      <a href="/motoare/" class="active">Motoare</a>
+      <a href="/dezmembrari/" >Dezmembrări</a>
     </nav>
 
     {%- assign cat_posts = site.posts | where_exp: "p", "p.categories contains 'Motoare'" -%}
     {% if cat_posts.size > 0 %}
-    <div class="section-title">
+    <div class="section-title" style="margin-top:var(--space-xl);">
       <h2>{{ cat_posts.size }} articole</h2>
       <div class="title-line"></div>
     </div>
@@ -43,8 +43,8 @@ description: "Știri și ghiduri despre motoare, tuning și performanță auto."
     {% else %}
     <div style="text-align:center;padding:var(--space-3xl) 0;">
       <p style="font-size:3rem;margin-bottom:var(--space-md);">🚗</p>
-      <h3>Articole în curând</h3>
-      <p style="color:var(--clr-text-3);margin-top:var(--space-sm);">Această categorie va fi populată în curând.</p>
+      <h3 style="margin-bottom:var(--space-sm);">Articole în curând</h3>
+      <p style="color:var(--clr-text-3);">Această categorie va fi populată în curând.</p>
     </div>
     {% endif %}
 

@@ -22,7 +22,7 @@ plugins:
 
 markdown: kramdown
 highlighter: rouge
-permalink: /:categories/:year/:month/:day/:title/
+permalink: /articole/:year/:month/:day/:title/
 
 kramdown:
   input: GFM

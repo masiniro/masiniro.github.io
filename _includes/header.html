@@ -1,29 +1,26 @@
 <header class="site-header" id="site-header" role="banner">
   <div class="container">
 
-    <a href="{{ '/' | relative_url }}" class="header-logo" aria-label="MasiniRO — Acasă">
+    <a href="{{ '/' | relative_url }}" class="header-logo" aria-label="MasiniRO">
       <div class="logo-mark" aria-hidden="true">MR</div>
       <span class="logo-text">Masini<span>RO</span></span>
     </a>
 
     <nav class="header-nav" id="header-nav" aria-label="Navigare principală">
       {%- assign cur = page.url -%}
-      <a href="{{ '/' | relative_url }}"                {% if cur == '/' %}aria-current="page" class="active"{% endif %}>Acasă</a>
-      <a href="{{ '/stiri/' | relative_url }}"           {% if cur contains '/stiri' %}aria-current="page" class="active"{% endif %}>Știri</a>
-      <a href="{{ '/test-drive/' | relative_url }}"      {% if cur contains '/test-drive' %}aria-current="page" class="active"{% endif %}>Test Drive</a>
-      <a href="{{ '/second-hand/' | relative_url }}"     {% if cur contains '/second-hand' %}aria-current="page" class="active"{% endif %}>Second Hand</a>
-      <a href="{{ '/electrice/' | relative_url }}"       {% if cur contains '/electrice' %}aria-current="page" class="active"{% endif %}>Electrice</a>
-      <a href="{{ '/motoare/' | relative_url }}"         {% if cur contains '/motoare' %}aria-current="page" class="active"{% endif %}>Motoare</a>
-      <a href="{{ '/dezmembrari/' | relative_url }}"     {% if cur contains '/dezmembrari' %}aria-current="page" class="active"{% endif %}>Dezmembrări</a>
-      <a href="{{ '/orase/' | relative_url }}"           {% if cur contains '/orase' %}aria-current="page" class="active"{% endif %}>Orașe</a>
+      <a href="{{ '/' | relative_url }}"               {% if cur == '/' %}aria-current="page" class="active"{% endif %}>Acasă</a>
+      <a href="{{ '/stiri/' | relative_url }}"          {% if cur contains '/stiri' %}aria-current="page" class="active"{% endif %}>Știri</a>
+      <a href="{{ '/test-drive/' | relative_url }}"     {% if cur contains '/test-drive' %}aria-current="page" class="active"{% endif %}>Test Drive</a>
+      <a href="{{ '/second-hand/' | relative_url }}"    {% if cur contains '/second-hand' %}aria-current="page" class="active"{% endif %}>Second Hand</a>
+      <a href="{{ '/electrice/' | relative_url }}"      {% if cur contains '/electrice' %}aria-current="page" class="active"{% endif %}>Electrice</a>
+      <a href="{{ '/motoare/' | relative_url }}"        {% if cur contains '/motoare' %}aria-current="page" class="active"{% endif %}>Motoare</a>
+      <a href="{{ '/dezmembrari/' | relative_url }}"    {% if cur contains '/dezmembrari' %}aria-current="page" class="active"{% endif %}>Dezmembrări</a>
+      <a href="{{ '/orase/' | relative_url }}"          {% if cur contains '/orase' %}aria-current="page" class="active"{% endif %}>Orașe</a>
     </nav>
 
     <div class="header-actions">
-      <button class="header-search-btn" id="search-btn" aria-label="Caută articole" title="Caută (Ctrl+K)">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
+      <button class="header-search-btn" id="search-btn" aria-label="Caută" title="Caută (Ctrl+K)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
       <button class="header-burger" id="header-burger" aria-label="Deschide meniu" aria-expanded="false" aria-controls="header-nav">
         <span aria-hidden="true"></span>
@@ -35,9 +32,9 @@
   </div>
 </header>
 
-<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Căutare rapidă">
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Căutare">
   <div class="search-box">
     <input type="search" id="search-input" placeholder="Caută articole auto..." autocomplete="off" aria-label="Caută">
-    <p class="search-hint">Apasă <kbd>ESC</kbd> pentru a închide · <kbd>Ctrl+K</kbd> pentru a deschide</p>
+    <p class="search-hint">Apasă <kbd>ESC</kbd> pentru a închide</p>
   </div>
 </div>
