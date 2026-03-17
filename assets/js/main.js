@@ -1,20 +1,6 @@
 (function () {
   'use strict';
 
-  // ── Font async loading ──────────────────────────────────────
-  (function() {
-    var fontLink = document.getElementById('font-css');
-    if (fontLink) {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-          fontLink.media = 'all';
-        });
-      } else {
-        fontLink.media = 'all';
-      }
-    }
-  })();
-
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 

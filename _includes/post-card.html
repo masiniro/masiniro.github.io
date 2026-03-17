@@ -6,14 +6,14 @@
       {%- if card_img contains "unsplash.com" -%}
         {%- assign img_base = card_img | split: "?" | first -%}
         <img
-          src="{{ img_base }}?w=400&q=75&auto=format"
-          srcset="{{ img_base }}?w=400&q=75&auto=format 400w, {{ img_base }}?w=800&q=75&auto=format 800w"
-          sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 400px"
+          src="{{ img_base }}?w=380&q=75&auto=format"
+          srcset="{{ img_base }}?w=380&q=75&auto=format 380w, {{ img_base }}?w=760&q=75&auto=format 760w"
+          sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 900px) calc(50vw - 24px), 380px"
           alt="{{ post.title | escape }}"
           loading="lazy"
           decoding="async"
-          width="400"
-          height="267">
+          width="380"
+          height="253">
       {%- else -%}
         <img src="{{ card_img }}" alt="{{ post.title | escape }}" loading="lazy" decoding="async" width="400" height="267">
       {%- endif -%}

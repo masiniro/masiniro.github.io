@@ -1,0 +1,68 @@
+/* Syne — display font */
+@font-face {
+  font-display: swap;
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/syne-v24-greek_latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/syne-v24-greek_latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/syne-v24-greek_latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/assets/fonts/syne-v24-greek_latin-800.woff2') format('woff2');
+}
+
+/* DM Sans — body font */
+@font-face {
+  font-display: swap;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/assets/fonts/dm-sans-v17-latin-500.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/dm-sans-v17-latin-600.woff2') format('woff2');
+}
+
+/* JetBrains Mono — mono font */
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/jetbrains-mono-v24-cyrillic_cyrillic-ext_greek_latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/assets/fonts/jetbrains-mono-v24-cyrillic_cyrillic-ext_greek_latin-500.woff2') format('woff2');
+}
