@@ -1,0 +1,101 @@
+<!-- ==============================
+     FOOTER — AutoRO
+     Shared across all layouts
+     ============================== -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-main">
+
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a href="{{ '/' | relative_url }}" class="logo-wrap" aria-label="AutoRO">
+          <div class="logo-mark">AR</div>
+          <span>Auto<span>RO</span></span>
+        </a>
+        <p>
+          Cel mai rapid blog auto din România.
+          Știri, teste și sfaturi pentru pasionații de automobile.
+        </p>
+        <div class="footer-social">
+          <!-- Facebook -->
+          <a href="#" aria-label="Facebook" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" aria-label="YouTube" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--clr-bg)"/>
+            </svg>
+          </a>
+          <!-- RSS -->
+          <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS Feed" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/>
+              <circle cx="5" cy="19" r="1"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links col 1 -->
+      <div class="footer-col">
+        <h4>Categorii</h4>
+        <ul>
+          <li><a href="{{ '/stiri/' | relative_url }}">Știri Auto</a></li>
+          <li><a href="{{ '/teste/' | relative_url }}">Teste Drive</a></li>
+          <li><a href="{{ '/sfaturi/' | relative_url }}">Sfaturi Practice</a></li>
+          <li><a href="{{ '/electrice/' | relative_url }}">Mașini Electrice</a></li>
+          <li><a href="{{ '/second-hand/' | relative_url }}">Second Hand</a></li>
+        </ul>
+      </div>
+
+      <!-- Links col 2 -->
+      <div class="footer-col">
+        <h4>Topicuri</h4>
+        <ul>
+          <li><a href="#">Prețuri & Taxe</a></li>
+          <li><a href="#">ITP & Legislație</a></li>
+          <li><a href="#">Asigurări RCA</a></li>
+          <li><a href="#">Rovigneta</a></li>
+          <li><a href="#">Piese & Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Links col 3 -->
+      <div class="footer-col">
+        <h4>Despre</h4>
+        <ul>
+          <li><a href="#">Despre AutoRO</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Politică confidențialitate</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+          <li><a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-main -->
+
+    <div class="footer-bottom">
+      <p>© {{ 'now' | date: "%Y" }} AutoRO. Toate drepturile rezervate.</p>
+      <div class="footer-badge">
+        <span class="dot"></span>
+        Actualizat zilnic cu Claude AI
+      </div>
+    </div>
+
+  </div>
+</footer>

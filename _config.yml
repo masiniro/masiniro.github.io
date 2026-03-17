@@ -1,0 +1,77 @@
+title: "AutoRO"
+tagline: "Știri și teste auto din România"
+description: "Cel mai actualizat blog auto din România — știri, teste drive, sfaturi și noutăți auto pentru șoferii români."
+url: "https://USERUL_TAU.github.io"
+baseurl: "/autoblog"
+lang: "ro"
+locale: "ro_RO"
+timezone: "Europe/Bucharest"
+
+author:
+  name: "AutoRO"
+  email: "contact@autoro.ro"
+  url: "https://USERUL_TAU.github.io/autoblog"
+
+logo: "/assets/images/favicon.svg"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+sass:
+  style: compressed
+  sass_dir: _sass
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - scripts/
+  - "*.zip"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "AutoRO"
+      image: "/assets/images/default-og.svg"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+paginate: 12
+paginate_path: "/arhiva/pagina/:num/"
+
+feed:
+  path: /feed.xml
+  posts_limit: 20
+
+twitter:
+  username: autoro
+  card: summary_large_image
+
+social:
+  name: AutoRO
+  links:
+    - https://facebook.com/autoro
+    - https://instagram.com/autoro
+
+collections:
+  posts:
+    output: true

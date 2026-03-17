@@ -1,0 +1,151 @@
+---
+layout: default
+---
+
+<!-- Ticker strip -->
+<div class="ticker-strip" aria-hidden="true">
+  <div class="ticker-inner">
+    {% assign ticker_posts = site.posts | limit: 8 %}
+    {% for post in ticker_posts %}
+      <span class="ticker-item">
+        <span class="sep">◆</span>
+        {{ post.title }}
+      </span>
+    {% endfor %}
+    {% for post in ticker_posts %}
+      <span class="ticker-item">
+        <span class="sep">◆</span>
+        {{ post.title }}
+      </span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Hero section -->
+<section class="home-hero">
+  <div class="container">
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-value">{{ site.posts | size }}+</span>
+        <span class="stat-label">Articole publicate</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">Zilnic</span>
+        <span class="stat-label">Actualizat automat</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">100%</span>
+        <span class="stat-label">Conținut în română</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">RO</span>
+        <span class="stat-label">Focusat pe România</span>
+      </div>
+    </div>
+
+    <!-- Featured / Hero post -->
+    {% assign featured = site.posts.first %}
+    {% if featured %}
+    <a href="{{ featured.url | relative_url }}" class="hero-card">
+      <div class="hero-img">
+        {% if featured.image %}
+          <img src="{{ featured.image }}" alt="{{ featured.title }}" loading="eager">
+        {% else %}
+          <div class="no-img-placeholder">🚗</div>
+        {% endif %}
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Cel mai recent
+        </div>
+      </div>
+      <div class="hero-body">
+        <span class="hero-category">{{ featured.categories.first | default: "Auto" }}</span>
+        <h1 class="hero-title">{{ featured.title }}</h1>
+        <p class="hero-excerpt">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
+        <div class="hero-meta">
+          <span>{{ featured.date | date: "%d %B %Y" }}</span>
+          <span>·</span>
+          <span>{{ featured.content | number_of_words | divided_by: 200 | plus: 1 }} min citire</span>
+        </div>
+        <span class="hero-cta">
+          Citește articolul
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- Latest posts -->
+<section style="padding-bottom: var(--space-3xl);">
+  <div class="container">
+
+    <!-- Category nav -->
+    <nav class="category-nav" aria-label="Filtrare categorii">
+      <a href="{{ '/' | relative_url }}" class="active">Toate</a>
+      <a href="{{ '/stiri/' | relative_url }}">Știri</a>
+      <a href="{{ '/teste/' | relative_url }}">Teste Drive</a>
+      <a href="{{ '/sfaturi/' | relative_url }}">Sfaturi</a>
+      <a href="{{ '/electrice/' | relative_url }}">Electrice</a>
+      <a href="{{ '/second-hand/' | relative_url }}">Second Hand</a>
+    </nav>
+
+    <!-- Section title -->
+    <div class="section-title">
+      <h2>Ultimele articole</h2>
+      <div class="title-line"></div>
+      <span class="title-tag">{{ site.posts | size }} total</span>
+    </div>
+
+    <!-- Posts grid - skip first (already in hero) -->
+    <div class="posts-grid">
+      {% assign grid_posts = site.posts | offset: 1 | limit: 9 %}
+      {% for post in grid_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+
+    {% if site.posts.size > 10 %}
+    <div style="text-align:center; margin-top: var(--space-3xl);">
+      <a href="{{ '/arhiva/' | relative_url }}" style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--clr-surface);
+        border: 1px solid var(--clr-border);
+        color: var(--clr-text-2);
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 12px 28px;
+        border-radius: var(--r-md);
+        transition: all 180ms;
+      ">
+        Vezi toate articolele →
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section style="padding-bottom: var(--space-3xl);">
+  <div class="container">
+    <div class="newsletter-block">
+      <h3>Rămâi la curent 🚀</h3>
+      <p>Primești zilnic cele mai noi știri auto direct în inbox. Zero spam.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="adresa@ta@email.ro" required>
+        <button type="submit">Abonează-te</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,198 @@
+---
+layout: default
+---
+
+<!-- Reading progress -->
+<div class="reading-progress" aria-hidden="true">
+  <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<!-- Post hero -->
+<section class="post-hero">
+  <div class="container">
+
+    <!-- Breadcrumb (vizual + schema generată în head.html) -->
+    <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-lg);">
+      <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;flex-wrap:wrap;">
+        <li>
+          <a href="{{ '/' | relative_url }}"
+             style="color:var(--clr-text-3);transition:color 180ms;"
+             onmouseover="this.style.color='var(--clr-text)'"
+             onmouseout="this.style.color='var(--clr-text-3)'">Acasă</a>
+        </li>
+        <li aria-hidden="true" style="color:var(--clr-text-3);opacity:.4;">›</li>
+        {% if page.categories.first %}
+        <li>
+          <a href="{{ '/' | append: page.categories.first | downcase | relative_url }}"
+             style="color:var(--clr-text-3);transition:color 180ms;"
+             onmouseover="this.style.color='var(--clr-text)'"
+             onmouseout="this.style.color='var(--clr-text-3)'">{{ page.categories.first }}</a>
+        </li>
+        <li aria-hidden="true" style="color:var(--clr-text-3);opacity:.4;">›</li>
+        {% endif %}
+        <li aria-current="page" style="color:var(--clr-text-2);">{{ page.title | truncate: 50 }}</li>
+      </ol>
+    </nav>
+
+    <!-- Category + date badges -->
+    <div class="post-category-row">
+      {% if page.categories.first %}
+        <a href="{{ '/' | append: page.categories.first | downcase | relative_url }}"
+           class="post-category-badge">{{ page.categories.first }}</a>
+      {% endif %}
+      <span class="post-date-badge">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>
+      </span>
+    </div>
+
+    <h1 itemprop="headline">{{ page.title }}</h1>
+
+    {% if page.description %}
+      <p class="post-subtitle">{{ page.description }}</p>
+    {% elsif page.excerpt %}
+      <p class="post-subtitle">{{ page.excerpt | strip_html | truncate: 220 }}</p>
+    {% endif %}
+
+    <!-- Meta bar -->
+    <div class="post-meta-bar">
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="4" rx="2"/><line x1="3" x2="21" y1="10" y2="10"/>
+        </svg>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>
+      </div>
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        {{ page.content | number_of_words | divided_by: 200 | plus: 1 }} min citire
+      </div>
+      {% if page.author %}
+      <div class="meta-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>{{ page.author }}</span>
+      </div>
+      {% endif %}
+      <button class="share-btn" id="share-btn" aria-label="Distribuie articolul" style="margin-left:auto;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+        </svg>
+        Distribuie
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- Cover image -->
+{% if page.image %}
+<div class="container" style="margin-bottom:var(--space-3xl);">
+  <div class="post-cover">
+    <img src="{{ page.image }}" alt="{{ page.title }}" loading="eager" decoding="async" width="1200" height="630">
+  </div>
+</div>
+{% endif %}
+
+<!-- Article body -->
+<div class="container" style="margin-bottom:var(--space-3xl);">
+  <div class="post-layout">
+
+    <article class="post-content" itemprop="articleBody">
+      {{ content }}
+
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="post-sidebar" aria-label="Sidebar articol">
+      <!-- TOC -->
+      <div class="sidebar-widget">
+        <p class="widget-title">Cuprins</p>
+        <nav class="toc-list" id="toc" aria-label="Cuprins articol"></nav>
+      </div>
+
+      <!-- Related -->
+      {% assign related = site.posts | where_exp: "p", "p.url != page.url" | limit: 4 %}
+      {% if related.size > 0 %}
+      <div class="sidebar-widget">
+        <p class="widget-title">Citește și</p>
+        <div class="related-list">
+          {% for p in related %}
+          <a href="{{ p.url | relative_url }}" class="related-item">
+            <div class="related-thumb">
+              {% if p.image %}
+                <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" width="56" height="56">
+              {% else %}
+                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--clr-bg-3);">🚗</div>
+              {% endif %}
+            </div>
+            <div>
+              <p class="related-title">{{ p.title | truncate: 60 }}</p>
+              <p class="related-date">{{ p.date | date: "%d %b %Y" }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </aside>
+
+  </div>
+</div>
+
+<!-- Prev / Next -->
+<div class="container" style="padding-bottom:var(--space-3xl);">
+  <div class="prevnext-nav">
+    {% if page.previous.url %}
+    <a href="{{ page.previous.url | relative_url }}" class="prevnext-item" rel="prev">
+      <span class="prevnext-label">← Anterior</span>
+      <span class="prevnext-title">{{ page.previous.title | truncate: 70 }}</span>
+    </a>
+    {% else %}<div></div>{% endif %}
+
+    {% if page.next.url %}
+    <a href="{{ page.next.url | relative_url }}" class="prevnext-item prevnext-item--right" rel="next">
+      <span class="prevnext-label">Următor →</span>
+      <span class="prevnext-title">{{ page.next.title | truncate: 70 }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+// Build TOC from headings
+(function(){
+  var toc = document.getElementById('toc');
+  if(!toc) return;
+  var hs = document.querySelectorAll('.post-content h2, .post-content h3');
+  if(!hs.length){ toc.closest('.sidebar-widget').style.display='none'; return; }
+  hs.forEach(function(h){
+    if(!h.id) h.id = h.textContent.toLowerCase()
+      .replace(/[ăâ]/g,'a').replace(/[îí]/g,'i').replace(/[șş]/g,'s').replace(/[țţ]/g,'t')
+      .replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').trim();
+    var a = document.createElement('a');
+    a.href = '#'+h.id;
+    a.textContent = h.textContent;
+    if(h.tagName==='H3') a.style.paddingLeft='14px';
+    toc.appendChild(a);
+  });
+})();
+</script>

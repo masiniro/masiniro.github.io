@@ -1,0 +1,46 @@
+{% assign post = include.post %}
+<article class="post-card">
+  <a href="{{ post.url | relative_url }}" class="card-img" tabindex="-1" aria-hidden="true">
+    {% if post.image %}
+      <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" decoding="async">
+    {% else %}
+      <div class="card-no-img">🚘</div>
+    {% endif %}
+    {% if post.categories.first %}
+      <span class="card-category">{{ post.categories.first }}</span>
+    {% endif %}
+  </a>
+
+  <div class="card-body">
+    <div class="card-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: "%d %b %Y" }}
+      </time>
+      {% if post.author %}
+        <span>· {{ post.author }}</span>
+      {% endif %}
+    </div>
+
+    <h3 class="card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+
+    {% if post.excerpt %}
+      <p class="card-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+    {% endif %}
+
+    <div class="card-footer">
+      <a href="{{ post.url | relative_url }}" class="read-more">
+        Citește
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <span class="reading-time">
+        {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min
+      </span>
+    </div>
+  </div>
+</article>

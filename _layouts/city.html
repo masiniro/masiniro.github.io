@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<section style="padding: var(--space-3xl) 0 var(--space-2xl);">
+  <div class="container">
+
+    <div style="margin-bottom: var(--space-2xl);">
+      <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-md);">
+        <ol style="display:flex;gap:6px;align-items:center;list-style:none;font-size:0.8rem;color:var(--clr-text-3);">
+          <li><a href="{{ '/' | relative_url }}" style="color:var(--clr-text-3);transition:color 180ms;" onmouseover="this.style.color='var(--clr-text)'" onmouseout="this.style.color='var(--clr-text-3)'">Acasă</a></li>
+          <li aria-hidden="true" style="opacity:.4;">›</li>
+          <li><a href="{{ '/orase/' | relative_url }}" style="color:var(--clr-text-3);transition:color 180ms;" onmouseover="this.style.color='var(--clr-text)'" onmouseout="this.style.color='var(--clr-text-3)'">Orașe</a></li>
+          <li aria-hidden="true" style="opacity:.4;">›</li>
+          <li aria-current="page" style="color:var(--clr-accent);">{{ page.city }}</li>
+        </ol>
+      </nav>
+
+      <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--space-sm);">
+        Auto {{ page.city }}
+      </p>
+      <h1 style="margin-bottom:var(--space-md);">Știri Auto din {{ page.city }}</h1>
+      <p style="color:var(--clr-text-3);max-width:640px;">
+        Cele mai recente știri, teste drive și sfaturi auto relevante pentru șoferii din <strong style="color:var(--clr-text);">{{ page.city }}</strong> și județul {{ page.judet }}.
+      </p>
+    </div>
+
+    <!-- Posts tagged with this city -->
+    {%- assign city_slug = page.city | downcase | replace: " ", "-" | replace: "ă","a" | replace: "â","a" | replace: "î","i" | replace: "ș","s" | replace: "ț","t" -%}
+    {%- assign city_posts = site.posts | where_exp: "p", "p.tags contains page.city or p.cities contains page.city" -%}
+
+    {% if city_posts.size > 0 %}
+    <div class="posts-grid">
+      {% for post in city_posts limit: 12 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- Fallback: show latest posts with city mention in content -->
+    <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--r-lg);padding:var(--space-2xl);text-align:center;margin-bottom:var(--space-2xl);">
+      <p style="font-size:2rem;margin-bottom:var(--space-md);">🚗</p>
+      <h3 style="margin-bottom:var(--space-sm);">Articole despre {{ page.city }} în curând</h3>
+      <p style="color:var(--clr-text-3);font-size:0.9rem;">Între timp, explorează toate articolele noastre.</p>
+    </div>
+    <div class="section-title">
+      <h2>Ultimele articole</h2>
+      <div class="title-line"></div>
+    </div>
+    <div class="posts-grid">
+      {% for post in site.posts limit: 6 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

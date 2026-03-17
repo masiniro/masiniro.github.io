@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<section style="padding: var(--space-3xl) 0 var(--space-2xl);">
+  <div class="container">
+
+    <!-- Page header -->
+    <div style="margin-bottom: var(--space-2xl);">
+      <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--space-sm);">
+        Arhivă completă
+      </p>
+      <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-md);">
+        Toate articolele
+      </h1>
+      <p style="color:var(--clr-text-3); font-size:1rem;">
+        {{ site.posts | size }} articole publicate — actualizat zilnic automat.
+      </p>
+    </div>
+
+    <!-- Category filter -->
+    <nav class="category-nav" aria-label="Filtrare">
+      <a href="{{ '/arhiva/' | relative_url }}" class="active">Toate</a>
+      <a href="{{ '/stiri/' | relative_url }}">Știri</a>
+      <a href="{{ '/teste/' | relative_url }}">Teste Drive</a>
+      <a href="{{ '/sfaturi/' | relative_url }}">Sfaturi</a>
+      <a href="{{ '/electrice/' | relative_url }}">Electrice</a>
+      <a href="{{ '/second-hand/' | relative_url }}">Second Hand</a>
+    </nav>
+
+    <!-- Posts grid -->
+    <div class="posts-grid">
+      {% for post in paginator.posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+    <nav class="pagination" aria-label="Paginare">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" aria-label="Pagina anterioară">
+          ←
+        </a>
+      {% else %}
+        <span class="disabled">←</span>
+      {% endif %}
+
+      {% for i in (1..paginator.total_pages) %}
+        {% if i == paginator.page %}
+          <span class="current">{{ i }}</span>
+        {% elsif i == 1 %}
+          <a href="{{ '/arhiva/' | relative_url }}">{{ i }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | replace: ':num', i | relative_url }}">{{ i }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" aria-label="Pagina următoare">
+          →
+        </a>
+      {% else %}
+        <span class="disabled">→</span>
+      {% endif %}
+    </nav>
+    {% endif %}
+
+  </div>
+</section>

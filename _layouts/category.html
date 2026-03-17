@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<section style="padding: var(--space-3xl) 0 var(--space-2xl);">
+  <div class="container">
+
+    <div style="margin-bottom: var(--space-2xl);">
+      <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--clr-accent);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--space-sm);">
+        Categorie
+      </p>
+      <h1>{{ page.category }}</h1>
+      <p style="color:var(--clr-text-3);margin-top:var(--space-sm);">
+        {{ page.posts.size }} articole în această categorie
+      </p>
+    </div>
+
+    <nav class="category-nav" aria-label="Categorii">
+      <a href="{{ '/' | relative_url }}">Toate</a>
+      <a href="{{ '/stiri/' | relative_url }}" {% if page.category == 'Știri' %}class="active"{% endif %}>Știri</a>
+      <a href="{{ '/teste/' | relative_url }}" {% if page.category == 'Teste' %}class="active"{% endif %}>Teste Drive</a>
+      <a href="{{ '/sfaturi/' | relative_url }}" {% if page.category == 'Sfaturi' %}class="active"{% endif %}>Sfaturi</a>
+      <a href="{{ '/electrice/' | relative_url }}" {% if page.category == 'Electrice' %}class="active"{% endif %}>Electrice</a>
+      <a href="{{ '/second-hand/' | relative_url }}" {% if page.category == 'Second Hand' %}class="active"{% endif %}>Second Hand</a>
+    </nav>
+
+    {% assign cat_posts = site.posts | where: "categories", page.category %}
+    <div class="posts-grid">
+      {% for post in cat_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+
+    {% if cat_posts.size == 0 %}
+    <div style="text-align:center;padding:var(--space-3xl) 0;color:var(--clr-text-3);">
+      <p style="font-size:3rem;margin-bottom:var(--space-md);">🚗</p>
+      <p>Niciun articol în această categorie momentan.</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
